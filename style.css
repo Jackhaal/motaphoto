@@ -1,0 +1,128 @@
+/*
+ Theme Name:     Twenty Twenty-One Child
+ Theme URI:      http://example.com/twenty-twenty-one-child/
+ Description:    Un thème enfant pour Twenty Twenty-One.
+ Author:         Votre Nom
+ Author URI:     http://example.com
+ Template:       twentytwentyone
+ Version:        1.0.0
+ License:        GNU General Public License v2 or later
+ License URI:    https://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:    twentytwentyone-child
+*/
+
+
+
+
+/* Styles pour la fenêtre modale de contact */
+.modal {
+    display: none; /* Masqué par défaut */
+    position: fixed; /* Fixé par rapport à la fenêtre */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fond sombre semi-transparent */
+    z-index: 1000;
+    display: flex;
+    justify-content: center; /* Centre la modale horizontalement */
+    align-items: center; /* Centre la modale verticalement */
+}
+
+/* Wrapper pour le contenu de la modale */
+.modal-wrapper {
+    height: 90%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-color: black;
+    width: 800px; /* Largeur fixe de la modale */
+    text-align: left;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu à l'intérieur de la modale */
+}
+
+/* Centrer le formulaire dans la modale */
+.wpcf7-form {
+    width: 100%; /* Prend toute la largeur de la modale */
+    max-width: 500px; /* Limite la largeur du formulaire */
+}
+
+/* Style des labels et champs de texte */
+.wpcf7-form p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligne les labels à gauche */
+    width: 100%;
+    margin-bottom: 20px;
+    font-weight: lighter;
+
+}
+
+/* Style des labels (NOM, E-MAIL, etc.) */
+.wpcf7-form p label {
+    font-size: 1rem;
+    margin-bottom: 5px; /* Espace entre le label et le champ */
+}
+
+/* Largeur des champs de texte */
+.wpcf7-form-control {
+    width: 100%; /* Prend toute la largeur disponible du formulaire */
+    max-width: 500px; /* Limite la largeur des champs */
+    padding: 10px;
+    border: 1px solid #ccc !important;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur */
+    font-size: 1rem;
+    margin-top: 5px; /* Espace entre le label et le champ de texte */
+}
+
+/* Header personnalisé pour le formulaire de contact */
+.formContactHeader {
+    height: 106px;
+    width: 100%;
+    background-image: url(/wp-content/themes/motaphoto/img/contactHeader.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 18px;
+}
+
+/* Bouton de fermeture */
+.close {
+    background-image: url(/wp-content/themes/motaphoto/img/icon_croix.svg);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    width: 46px;
+    height: 46px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+}
+
+/* Styles responsive pour les petits écrans */
+@media (max-width: 768px) {
+    .modal-wrapper {
+        width: 90vw;
+        height: auto;
+    }
+
+    .wpcf7-form-control {
+        width: 100%;
+    }
+
+    .close {
+        width: 40px;
+        height: 40px;
+        top: 10px;
+        right: 10px;
+    }
+}
