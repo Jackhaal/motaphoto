@@ -1,37 +1,62 @@
 <?php
 /**
- * The header.
- *
- * This is the template that displays all of the <head> section and everything up until main.
- *
+ * The header for our theme
+ **
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
+ * @package motaphoto
  */
 
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?> <?php twentytwentyone_the_html_classes(); ?>>
+<html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<?php wp_head(); ?>
+    <meta charset="<?php bloginfo('charset'); ?>"/>
+	<!-- Permet d'assurer que le site est responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<!-- Mots-clés pour le SEO -->
+    <meta name="keywords" content="photographe événementiel, photographe event, Nathalie Mota, photographie"/>
+	<!-- Description pour le SEO -->
+    <meta name="description" content="Nathalie Mota, photographe événementielle. Découvrez mes services et réalisations."/>
+
+    <!-- Titre du site, composé du titre de la page et du nom du site -->
+	<title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
+    <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content">
-		<?php
-		/* translators: Hidden accessibility text. */
-		esc_html_e( 'Skip to content', 'twentytwentyone' );
-		?>
-	</a>
+<body>
+	<header>
+		<!-- Section pour afficher le logo du site -->
+		<div class="logo">
+			<?php
+			  // S'il est défini, affiche le logo personnalisé du site
+				if (function_exists('the_custom_logo')) {
+					the_custom_logo();
+				} else {
+					echo '<h1>' . get_bloginfo('name') . '</h1>';
+				}
+			?>
+		</div>
 
-	<?php get_template_part( 'template-parts/header/site-header' ); ?>
+		<!-- Bouton pour ouvrir/fermer le menu sur les appareils mobiles -->
+		<button class="menu-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="mobile menu" type="button">
+			<span class="line"></span>
+			<span class="line"></span>
+			<span class="line"></span>
+		</button>
 
-	<div id="content" class="site-content">
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main">
+		<!-- Navigation principale du site -->
+		<nav id="nav-menu" role="navigation">
+			<?php
+			wp_nav_menu(array(
+				'theme_location' =>	'menu_principal',
+				'container' => false,
+				'menu_class' => 'menu',
+				));
+			?>
+		</nav>
+	</header>
+
+	<main>
+
+
