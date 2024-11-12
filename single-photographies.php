@@ -62,25 +62,7 @@ if ($custom_query->have_posts()) :
 
         <div class="photo-navigation">
             <div class="arrow">
-                <?php
-                    // Requête pour obtenir le dernier post
-                    $args_dernier = array(
-                        'post_type' => 'photographies', 
-                        'posts_per_page' => 1,
-                        'orderby' => 'date',
-                        'order' => 'DESC',
-                    );
-                    $last_post = new WP_Query($args_dernier);
-
-                    // Requête pour obtenir le premier post
-                    $args_premier = array(
-                        'post_type' => 'photographies', 
-                        'posts_per_page' => 1,
-                        'orderby' => 'date',
-                        'order' => 'ASC',
-                    );
-                    $first_post = new WP_Query($args_premier);
-                ?>
+              
                 <div class="arrow-left">
                     <?php $previous_post = get_previous_post(); ?>
 
